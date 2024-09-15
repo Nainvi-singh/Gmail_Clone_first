@@ -10,7 +10,7 @@ const useGetAllEmails = () => {
         const fetchEmails = async () => {
             try {
 
-                const res = await axios.get("http://localhost:4500/api/v1/email/getallemails", {
+                const res = await axios.get("https://gmail-clone-1-u2jb.onrender.com/api/v1/email/getallemails", {
                     withCredentials: true
                 });
                 dispatch(setEmails(res.data.emails));
