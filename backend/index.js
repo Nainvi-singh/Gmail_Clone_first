@@ -11,16 +11,18 @@ connectDB();
 const PORT = 4500;
 const app = express();
 
+app.use(cors({origin:`http://localhost:5173`,credentials:true}));
+app.options('*',cors())
 // middleware
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(cookieParser());
 
-const corsOptions = {
-    origin:'http://localhost:5174',
-    credentials:true
-}
-app.use(cors(corsOptions));
+// const corsOptions = {
+//     origin:'http://localhost:5174',
+//     credentials:true
+// }
+// app.use(cors(corsOptions));
 
 // routes
 app.use("/api/v1/user", userRoute);
