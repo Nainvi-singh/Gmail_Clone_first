@@ -11,7 +11,7 @@ connectDB();
 const PORT = 4500;
 const app = express();
 
-app.use(cors({origin:`http://localhost:5173`,credentials:true}));
+app.use(cors({origin:`https://gmail-clone-2-qj4n.onrender.com`,credentials:true}));
 app.options('*',cors())
 // middleware
 app.use(express.urlencoded({extended:true}));
