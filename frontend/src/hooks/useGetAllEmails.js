@@ -9,9 +9,12 @@ const useGetAllEmails = () => {
   useEffect(() => {
     const fetchEmails = async () => {
       try {
-        const res = await axios.get(`/api/v1/email/getallemails`, {
-          withCredentials: true
-        });
+        const res = await axios.get(
+          `https://gmail-clone-hpih.onrender.com/api/v1/email/getallemails`,
+          {
+            withCredentials: true
+          }
+        );
         dispatch(setEmails(res.data.emails));
       } catch (error) {
         console.log(error);

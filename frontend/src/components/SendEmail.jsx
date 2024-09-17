@@ -21,12 +21,16 @@ const SendEmail = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`/api/v1/email/create`, formData, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        withCredentials: true
-      });
+      const res = await axios.post(
+        `https://gmail-clone-hpih.onrender.com/api/v1/email/create`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          withCredentials: true
+        }
+      );
       dispatch(setEmails([...emails, res.data.email]));
     } catch (error) {
       console.log(error);

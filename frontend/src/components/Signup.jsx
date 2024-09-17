@@ -19,12 +19,16 @@ const Signup = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`/api/v1/user/register`, input, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        withCredentials: true
-      });
+      const res = await axios.post(
+        `https://gmail-clone-hpih.onrender.com/api/v1/user/register`,
+        input,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          withCredentials: true
+        }
+      );
       if (res.data.success) {
         navigate('/login');
         toast.success(res.data.message);

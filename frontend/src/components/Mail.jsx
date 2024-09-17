@@ -22,9 +22,12 @@ const Mail = () => {
   const params = useParams();
   const deleteHandler = async () => {
     try {
-      const res = await axios.delete(`/api/v1/email/${params.id}`, {
-        withCredentials: true
-      });
+      const res = await axios.delete(
+        `https://gmail-clone-hpih.onrender.com/api/v1/email/${params.id}`,
+        {
+          withCredentials: true
+        }
+      );
       toast.success(res.data.message);
       navigate('/');
     } catch (error) {
