@@ -4,6 +4,7 @@ import { MdOutlineStarBorder } from "react-icons/md";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setSelectedEmail } from '../redux/appSlice';
+import { formatDate } from './formatDate';
 
 const Email = ({email}) => {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const Email = ({email}) => {
                 <p>{email?.message}</p>
             </div>
             <div className='flex-none text-gray text-sm'>
-                <p>{email?.createdAt}</p>
+                <p>{formatDate(email?.createdAt)}</p>
             </div>
         </div>
     )
