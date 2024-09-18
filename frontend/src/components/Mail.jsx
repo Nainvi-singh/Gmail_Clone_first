@@ -15,6 +15,7 @@ import {
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import {formatDate} from './formatDate.js'
 
 const Mail = () => {
   const navigate = useNavigate();
@@ -31,7 +32,8 @@ const Mail = () => {
       toast.success(res.data.message);
       navigate('/');
     } catch (error) {
-      console.log(error);
+      console.error("Error deleting email:", error);
+      toast.error("An error occurred while deleting the email");
     }
   };
 
@@ -86,7 +88,7 @@ const Mail = () => {
             <span className="text-sm bg-gray-200 rounded-md px-2">inbox</span>
           </div>
           <div className="flex-none text-gray-400 my-5 text-sm">
-            <p>12 days ago</p>
+            <p>{formatDate(selectedEmail?.createdAt)}</p>
           </div>
         </div>
         <div className="text-gray-500 text-sm">
