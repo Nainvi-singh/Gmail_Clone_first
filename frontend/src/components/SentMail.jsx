@@ -13,7 +13,7 @@ const SentMail = () => {
     useEffect(() => {
         const fetchSentEmails = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/api/v1/email/sent`, {
+                const res = await axios.get(`https://gmail-clone-hpih.onrender.com/api/v1/email/sent`, {
                     withCredentials: true
                 });
                 setSentEmails(res.data.emails);
