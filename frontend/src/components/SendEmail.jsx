@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 import { useDispatch, useSelector } from 'react-redux';
-import { setEmails, setOpen } from '../redux/appSlice';
+import { setEmails, addEmailToSent, setOpen } from '../redux/appSlice';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 
