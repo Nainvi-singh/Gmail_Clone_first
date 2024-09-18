@@ -9,6 +9,7 @@ import Mail from './components/Mail'
 import SendEmail from './components/SendEmail'
 import Login from './components/Login'
 import Signup from './components/Signup'
+import SentMail from './components/SentMail'
 import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
