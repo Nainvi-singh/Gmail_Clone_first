@@ -11,6 +11,7 @@ import {
 import { TbSend2 } from 'react-icons/tb';
 import { useDispatch } from 'react-redux';
 import { setOpen } from '../redux/appSlice';
+import { useNavigate } from 'react-router-dom'
 
 const sidebarItems = [
   {
@@ -27,7 +28,8 @@ const sidebarItems = [
   },
   {
     icon: <TbSend2 size={'20px'} />,
-    text: 'Sent'
+    text: 'Sent',
+     path: "/sent" 
   },
   {
     icon: <MdOutlineDrafts size={'20px'} />,
@@ -41,6 +43,7 @@ const sidebarItems = [
 
 const Sidebar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <div className="w-[15%]">
       <div className="p-3">
@@ -55,7 +58,10 @@ const Sidebar = () => {
       <div className="text-gray-600">
         {sidebarItems.map((item, index) => {
           return (
-            <div className="flex items-center pl-6 py-1 rounded-r-full gap-4 my-2 hover:cursor-pointer hover:bg-gray-200">
+            <div key={index}
+              className="flex items-center pl-6 py-1 rounded-r-full gap-4 my-2 hover:cursor-pointer hover:bg-gray-200"
+              onClick={() => navigate(item.path)} 
+              >
               {item.icon}
               <p>{item.text}</p>
             </div>
