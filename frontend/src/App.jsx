@@ -26,6 +26,10 @@ const appRouter = createBrowserRouter([
         path: "/mail/:id",
         element: <Mail />
       },
+      {
+        path: "/sent",
+        element: <SentMail />
+      }
     ]
   },
   {
