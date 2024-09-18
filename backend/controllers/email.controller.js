@@ -45,6 +45,19 @@ export const deleteEmail = async (req,res) => {
 export const getAllEmailById = async (req,res)=>{
     try {
         const userId = req.id;
+        const emails = await Email.find({ to: userId })
+        .populate('userId', 'email') // Populate the sender's userId field with email
+        .populate('to', 'email');    // Populate the recipient's to field with email
+        console.log("Fetched emails:", emails);
+        return res.status(200).json({ emails });
+    } catch (error) {
+        console.error("Error fetching emails:", error);
+        return res.status(500).json({ message: "Internal server error" });
+    }
+}
+export const getSentEmails = async (req, res) => {
+    try {
+        const userId = req.id;
         const emails = await Email.find({ userId });  // Fetch emails where userId matches
 
         return res.status(200).json({ emails });
