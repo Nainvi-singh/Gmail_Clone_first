@@ -25,8 +25,11 @@ const appSlice = createSlice({
         },
         setSearchText:(state,action) => {
             state.searchText = action.payload;
-        }
+        },
+        addEmailToSent: (state, action) => {
+          state.sentEmails=action.payload;
+        },
     }
 });
-export const { setOpen, setAuthUser, setEmails, setSelectedEmail, setSearchText } = appSlice.actions;
+export const { setOpen, setAuthUser, setEmails, setSelectedEmail, setSearchText,addEmailToSent } = appSlice.actions;
 export default appSlice.reducer;
