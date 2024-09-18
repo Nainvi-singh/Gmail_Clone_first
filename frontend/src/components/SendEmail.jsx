@@ -31,7 +31,8 @@ const SendEmail = () => {
           withCredentials: true
         }
       );
-      dispatch(setEmails([...emails, res.data.email]));
+      dispatch(addEmailToSent([...emails, res.data.email]));
+      toast.success("Email sent successfully");
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message);
