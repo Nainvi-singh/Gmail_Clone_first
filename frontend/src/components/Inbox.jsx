@@ -4,6 +4,7 @@ import { FaCaretDown, FaUserFriends } from "react-icons/fa"
 import { IoMdMore, IoMdRefresh } from 'react-icons/io'
 import { GoTag } from "react-icons/go";
 import Emails from './Emails';
+import { useSelector } from 'react-redux';
 
 const mailType = [
     {
@@ -22,6 +23,7 @@ const mailType = [
 
 const Inbox = () => {
     const [selected, setSelected] = useState(0);
+     const { inboxEmails } = useSelector(state => state.app);
     return (
         <div className='flex-1 bg-white rounded-xl mx-5'>
             <div className='flex items-center justify-between px-4 my-2'>
@@ -56,7 +58,7 @@ const Inbox = () => {
                         })
                     }
                 </div>
-                <Emails/>
+                <Emails emails={inboxEmails}/>
             </div>
         </div>
     )
